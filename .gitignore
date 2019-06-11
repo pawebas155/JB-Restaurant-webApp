@@ -1,0 +1,6 @@
+eclipse/
+
+jdk/
+
+wildfly-10.1.0.Final/
+*.bat

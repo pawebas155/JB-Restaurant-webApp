@@ -1,0 +1,21 @@
+package com.JB.restaurant.entity;
+
+import java.util.Date;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Embeddable
+@Table(name = "order")
+public class Order {
+
+	@ManyToOne
+	Customer customer;
+	
+	@Id
+	private Long IdOrder;
+	private Date date;
+	private Integer tableNumber;
+}

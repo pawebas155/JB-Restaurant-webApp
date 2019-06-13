@@ -7,12 +7,15 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.JB.restaurant.ejb.CustomerEJB;
 import com.JB.restaurant.entity.Customer;
+
+import pl.kurs.komis.Car;
 
 @Path("/customer")
 @Consumes({ "application/json" })
@@ -26,12 +29,12 @@ public class CustomerREST {
 	@POST
 	public String create(Customer customer) {
 		bean.create(customer);
-		return "car created!";
+		return "customer created!";
 	}
 	
 	@GET
 	@Path("/{idc}")
-	public Customer find(@PathParam("idc") int idc){
+	public Customer find(@PathParam("idc")Long idc){
 		Customer customer = bean.find(idc);
 		return customer;
 	}
@@ -44,7 +47,18 @@ public class CustomerREST {
 	
 	@DELETE
 	@Path("/{idc}")
-	public void delete(@PathParam("idc") int idc) {
+	public void delete(@PathParam("idc") Long idc) {
 		bean.delete(idc);
+	}
+	
+	@PUT
+	public String update(Car car) {
+		try {
+			bean.update(car);
+			return "car updated!";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "car not updated :(";
+		}
 	}
 }

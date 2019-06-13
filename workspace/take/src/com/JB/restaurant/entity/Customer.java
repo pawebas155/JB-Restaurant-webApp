@@ -19,8 +19,7 @@ public class Customer {
 	private String firstName;
 	private String secondName;
 	
-	@OneToMany(mappedBy="order.customer")
-	@Embedded
+	@OneToMany(mappedBy="customer")
 	private List<Order> orders;
 	
 	public Long getIdCustomer(){

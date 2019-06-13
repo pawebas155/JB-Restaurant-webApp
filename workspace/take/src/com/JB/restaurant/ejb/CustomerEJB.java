@@ -20,12 +20,12 @@ public class CustomerEJB {
 		manager.persist(customer);
 	}
 	
-	public void delete(int idc) {
+	public void delete(Long idc) {
 		Customer customer = manager.find(Customer.class, idc);
 		manager.remove(customer);
 	}
 	
-	public Customer find(int idc){
+	public Customer find(Long idc){
 		return manager.find(Customer.class, idc);
 	}
 	

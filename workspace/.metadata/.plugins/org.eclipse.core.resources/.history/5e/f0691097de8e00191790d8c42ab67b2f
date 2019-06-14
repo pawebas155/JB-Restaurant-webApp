@@ -24,10 +24,6 @@ public class Choice {
 	private Date date;
 	private Integer tableNumber;
 	
-	public Choice(){
-		date = new Date();
-	}
-	
 	public Long getIdChoice(){
 		return idChoice;
 	}

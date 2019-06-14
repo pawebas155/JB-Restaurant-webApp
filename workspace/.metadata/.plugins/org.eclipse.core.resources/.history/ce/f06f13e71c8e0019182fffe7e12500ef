@@ -52,9 +52,9 @@ public class CustomerREST {
 	}
 	
 	@PUT
-	public String update(Customer customer) {
+	public String update(Car car) {
 		try {
-			bean.update(customer);
+			bean.update(car);
 			return "car updated!";
 		} catch (Exception e) {
 			e.printStackTrace();

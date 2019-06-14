@@ -20,7 +20,7 @@ public class Customer {
 	private String secondName;
 	
 	@OneToMany(mappedBy="customer")
-	private List<Choice> choices;
+	private List<Order> orders;
 	
 	public Long getIdCustomer(){
 		return idCustomer;

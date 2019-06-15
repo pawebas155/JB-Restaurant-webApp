@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.persistence.Table"/>
 <fullyQualifiedTypeName name="javax.persistence.Id"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
 <fullyQualifiedTypeName name="com.JB.restaurant.entity.Customer"/>
 <fullyQualifiedTypeName name="com.JB.restaurant.ejb.CustomerEJB"/>
@@ -16,4 +15,6 @@
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="com.JB.restaurant.ejb.OrderEJB"/>
 <fullyQualifiedTypeName name="com.JB.restaurant.entity.Order"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 </qualifiedTypeNameHistroy>

@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.JB.restaurant.entity.Choice;
+import com.JB.restaurant.entity.Customer;
 
 @Stateless
 public class ChoiceEJB {
@@ -15,8 +16,9 @@ public class ChoiceEJB {
 	@PersistenceContext(name="komis")
 	EntityManager manager;
 	
-	public void create(Choice choice) {
+	public void create(Choice choice, Long idCustomer) {
 		System.out.println("Creating order!");
+		choice.setCustomer(manager.find(Customer.class, idCustomer));
 		manager.persist(choice);
 	}
 	

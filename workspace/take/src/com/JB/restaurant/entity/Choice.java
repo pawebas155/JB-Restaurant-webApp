@@ -1,5 +1,6 @@
 package com.JB.restaurant.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
@@ -47,5 +48,13 @@ public class Choice {
 	}
 	public void setTableNumber(Integer tableNumber){
 		this.tableNumber = tableNumber;
+	}
+	
+	public void setCustomer(Customer customer){
+		this.customer = customer;
+	}
+	
+	public Long getCustomerId(){
+		return this.customer.getIdCustomer();
 	}
 }

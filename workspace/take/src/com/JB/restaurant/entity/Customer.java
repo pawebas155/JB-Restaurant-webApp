@@ -1,5 +1,6 @@
 package com.JB.restaurant.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Embedded;
@@ -20,7 +21,11 @@ public class Customer {
 	private String secondName;
 	
 	@OneToMany(mappedBy="customer")
-	private List<Order> orders;
+	private List<Choice> choices;
+	
+	public Customer(){
+		choices = new ArrayList<Choice>();
+	}
 	
 	public Long getIdCustomer(){
 		return idCustomer;

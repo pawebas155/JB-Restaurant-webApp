@@ -22,11 +22,6 @@ public class ChoiceEJB {
 		manager.persist(choice);
 	}
 	
-	public void create(Choice choice) {
-		System.out.println("Creating order!");
-		manager.persist(choice);
-	}
-	
 	public void delete(Long ido) {
 		Choice choice = manager.find(Choice.class, ido);
 		manager.remove(choice);

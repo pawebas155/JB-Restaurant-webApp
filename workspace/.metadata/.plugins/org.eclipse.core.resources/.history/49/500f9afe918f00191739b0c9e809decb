@@ -34,12 +34,6 @@ public class ChoiceREST {
 		return "choice created! Assigned to customer number " + choice.getCustomerId();
 	}
 	
-	@POST
-	public String create(Choice choice) {
-		bean.create(choice);
-		return "choice created! Assigned to customer number ";
-	}
-	
 	@GET
 	@Path("/{idc}")
 	public Choice find(@PathParam("idc")Long ido){

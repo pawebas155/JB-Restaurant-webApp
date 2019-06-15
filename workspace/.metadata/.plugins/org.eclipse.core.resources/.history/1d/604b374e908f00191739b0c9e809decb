@@ -25,6 +25,7 @@ public class Customer {
 	
 	public Customer(){
 		choices = new ArrayList<Choice>();
+		choices.add(new Choice());
 	}
 	
 	public Long getIdCustomer(){

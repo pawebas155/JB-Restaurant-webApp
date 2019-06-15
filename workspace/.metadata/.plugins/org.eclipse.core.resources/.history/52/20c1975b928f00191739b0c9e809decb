@@ -37,7 +37,7 @@ public class ChoiceREST {
 	@POST
 	public String create(Choice choice) {
 		bean.create(choice);
-		return "choice created! Assigned to customer number ";
+		return "choice created! Assigned to customer number " + choice.getCustomerId();
 	}
 	
 	@GET

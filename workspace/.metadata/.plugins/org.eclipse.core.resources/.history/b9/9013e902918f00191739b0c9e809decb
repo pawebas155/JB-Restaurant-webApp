@@ -1,6 +1,5 @@
 package com.JB.restaurant.entity;
 
-import com.JB.restaurant.entity.Customer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

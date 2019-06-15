@@ -4,3 +4,5 @@ jdk/
 
 wildfly-10.1.0.Final/
 *.bat
+workspace/.metadata
+workspace/.recommenders

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.JB.restaurant.dto.ChoiceDTO;
 import com.JB.restaurant.entity.Choice;
 import com.JB.restaurant.entity.Customer;
 
@@ -22,8 +23,11 @@ public class ChoiceEJB {
 		manager.persist(choice);
 	}
 	
-	public void create(Choice choice) {
+	public void create(ChoiceDTO choiceDTO) {
 		System.out.println("Creating order!");
+		Choice choice = new Choice();
+		choice.setTableNumber(choiceDTO.getTableNumber());
+		choice.setCustomer(manager.find(Customer.class, choiceDTO.getIdCustomer()));
 		manager.persist(choice);
 	}
 	

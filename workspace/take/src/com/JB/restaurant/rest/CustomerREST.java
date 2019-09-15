@@ -15,12 +15,10 @@ import javax.ws.rs.Produces;
 import com.JB.restaurant.ejb.CustomerEJB;
 import com.JB.restaurant.entity.Customer;
 
-import pl.kurs.komis.Car;
 
 @Path("/customer")
 @Consumes({ "application/json" })
 @Produces({ "application/json" })
-
 public class CustomerREST {
 
 	@EJB
@@ -55,12 +53,14 @@ public class CustomerREST {
 	public String update(Customer customer) {
 		try {
 			bean.update(customer);
-			return "car updated!";
+			return "customer updated!";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "car not updated :(";
+			return "customer not updated";
 		}
 	}
 	
-	
 }
+	
+	
+

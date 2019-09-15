@@ -13,10 +13,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.JB.restaurant.ejb.CustomerEJB;
+import com.JB.restaurant.dto.ChoiceDTO;
 import com.JB.restaurant.ejb.ChoiceEJB;
 import com.JB.restaurant.entity.Customer;
 import com.JB.restaurant.entity.Choice;
-
 
 @Path("/choice")
 @Consumes({ "application/json" })
@@ -25,37 +25,48 @@ import com.JB.restaurant.entity.Choice;
 public class ChoiceREST {
 
 	@EJB
-	ChoiceEJB bean;
-	
+	ChoiceEJB choiceBean;
+
+	@EJB
+	CustomerEJB customerBean;
+
 	@POST
-	@Path("/{idc}")
-	public String create(Choice choice, @PathParam("idc") Long idc) {
-		bean.create(choice, idc);
-		return "choice created! Assigned to customer number " + choice.getCustomerId();
+	public String create(ChoiceDTO choiceDTO) {
+		if (customerBean.find(choiceDTO.getIdCustomer()) != null) {
+			choiceBean.create(choiceDTO);
+			return "choice created!";
+		} else {
+			return "Customer of id " + choiceDTO.getIdCustomer() + " not found";
+		}
 	}
-	
-	@POST
-	public String create(Choice choice) {
-		bean.create(choice);
-		return "choice created! Assigned to customer number ";
-	}
-	
+
 	@GET
 	@Path("/{idc}")
-	public Choice find(@PathParam("idc")Long ido){
-		Choice choice = bean.find(ido);
+	public Choice find(@PathParam("idc") Long ido) {
+		Choice choice = choiceBean.find(ido);
 		return choice;
 	}
-	
+
 	@GET
 	public List<Choice> get() {
-		List<Choice> lOrders = bean.get();
+		List<Choice> lOrders = choiceBean.get();
 		return lOrders;
 	}
-	
+
 	@DELETE
 	@Path("/{idc}")
 	public void delete(@PathParam("idc") Long ido) {
-		bean.delete(ido);
+		choiceBean.delete(ido);
+	}
+
+	@PUT
+	public String update(Choice choice) {
+		try {
+			choiceBean.update(choice);
+			return "choice updated!";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "choice not updated :(";
+		}
 	}
 }
